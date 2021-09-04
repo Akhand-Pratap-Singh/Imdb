@@ -52,3 +52,14 @@ def all(name:str, db:Session= Depends(get_db)):
 							detail=f"Movie with the name {name} is not available")
 
 	return data
+
+@app.post('/user')
+def create_user(request:schemas.User, db: Session= Depends(get_db)):
+	new_user = models.User(name=request.name,
+						   email=request.email,
+						   password=request.password,
+						   admin_rights=request.admin_rights)
+	db.add(new_user)
+	db.commit()
+	db.refresh(new_user)
+	return new_user

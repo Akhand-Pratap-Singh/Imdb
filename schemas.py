@@ -6,3 +6,10 @@ class Imdb(BaseModel):
 	imdb_score: float
 	name:str
 	genre:str
+
+
+class User(BaseModel):
+	name: str
+	email: str
+	password: str
+	admin_rights: bool
