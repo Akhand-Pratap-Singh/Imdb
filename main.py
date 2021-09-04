@@ -1,9 +1,9 @@
 import json
-from fastapi import FastAPI, Depends, status, Response, HTTPException
+from fastapi import FastAPI, Depends, status, HTTPException
 from sqlalchemy.orm import Session
 
-from . import schemas, models
-from .database import engine, SessionLocal
+import schemas, models
+from database import engine, SessionLocal
 
 
 app = FastAPI()
